@@ -4,23 +4,23 @@ public class MainChallenge {
         int score = 4000;
         int levelCompleted = 5;
         int bonus = 100;
-        int finalScore = score;
 
-        calculateScore(gameOver, score, levelCompleted, bonus, finalScore);
 
-         score = 10000;
-         levelCompleted = 8;
-         bonus = 200;
+        int highScore = calculateScore(gameOver, score, levelCompleted, bonus);
+        System.out.println("The high score is " + highScore);
 
-        calculateScore(gameOver, score, levelCompleted, bonus, finalScore);
-
+        System.out.print("The next highscore is " + calculateScore(true, 1000, 8, 200));
     }
 
-    public static void calculateScore(boolean gameOver, int score, int levelCompleted, int bonus, int finalScore) {
+    public static int calculateScore(boolean gameOver, int score, int levelCompleted, int bonus) {
+        int finalScore = score;
+
         if (gameOver) {
             finalScore += finalScore + (levelCompleted * bonus);
-            System.out.println("Your final score was " + finalScore);
+            finalScore += 1000;
         }
+
+        return finalScore;
     }
 
 }

@@ -16,7 +16,7 @@ public class Switch {
             default:
                 System.out.println("Value is not 1, 2, 3, 4, 5");
         }
-        String month = "oct";
+        String month = "xyz";
         System.out.println(month + " is in the " + getQuarter(month) + " quarter");
     }
 
@@ -26,7 +26,11 @@ public class Switch {
             case "apr", "may", "jun" -> "2nd";
             case "jul", "aug", "sep" -> "3nd";
             case "oct", "nov", "dec" -> "4th";
-            default -> "Bad";
+            // Always include a default case
+            default -> {
+                String badResponse = month + " is bad";
+                yield badResponse;
+            }
         };
     }
 }

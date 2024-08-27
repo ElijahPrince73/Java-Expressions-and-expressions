@@ -16,5 +16,17 @@ public class Switch {
             default:
                 System.out.println("Value is not 1, 2, 3, 4, 5");
         }
+        String month = "oct";
+        System.out.println(month + " is in the " + getQuarter(month) + " quarter");
+    }
+
+    public static String getQuarter (String month) {
+        return switch (month) {
+            case "jan", "feb", "mar" -> "1st";
+            case "apr", "may", "jun" -> "2nd";
+            case "jul", "aug", "sep" -> "3nd";
+            case "oct", "nov", "dec" -> "4th";
+            default -> "Bad";
+        };
     }
 }
